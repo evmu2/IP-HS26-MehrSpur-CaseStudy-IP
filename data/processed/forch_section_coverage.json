@@ -1,0 +1,66 @@
+{
+  "schema_version": 3,
+  "contract": {
+    "algorithm_version": 1,
+    "recipe": {
+      "mode": "PT",
+      "both_directions": true,
+      "kind": "pt_stop",
+      "station": "Forch",
+      "towards": null
+    },
+    "inputs": {
+      "routing": "e5a252e77fc45cdc71b10e04741830bd5b9afae343e1e47ad0377b2c9cbbcec7",
+      "skims": "8c6e321818f13afe85cce069b7df002db2f1c74d33764fda4c175fc689b8d7bf",
+      "zones": "86696f4eed8fb24a1cd8011c332f0ed6a868d65013cddfcf13930b3e11ccd623"
+    }
+  },
+  "default_section": "pt_stop_bcba42067132",
+  "sections": [
+    {
+      "id": "pt_stop_bcba42067132",
+      "name": "Forch",
+      "mode": "PT",
+      "kind": "pt_stop",
+      "masks": {
+        "pt_walk": "pt_walk_count",
+        "pt_bike": "pt_bike_count"
+      },
+      "components": {
+        "pt_walk": {
+          "access": "pt_walk_access",
+          "egress": "pt_walk_egress",
+          "visits": "pt_walk_visits",
+          "transfer": "pt_walk_transfer",
+          "transfer_walk_minutes": "pt_walk_transfer_walk_minutes"
+        },
+        "pt_bike": {
+          "access": "pt_bike_access",
+          "egress": "pt_bike_egress",
+          "visits": "pt_bike_visits",
+          "transfer": "pt_bike_transfer",
+          "transfer_walk_minutes": "pt_bike_transfer_walk_minutes"
+        }
+      },
+      "saving_weights": {
+        "pt_walk": "pt_walk_saving_weight",
+        "pt_bike": "pt_bike_saving_weight"
+      },
+      "both_directions": true,
+      "stations": [
+        "Forch"
+      ],
+      "route_input_signature": "6361a3066f7faaa18f77f8fabcc3bcb2f4f5f657ef1d7a17d6e7c4184f3c682d",
+      "description": "Unique access, egress or represented interior walking-transfer users.",
+      "station_stop_ids": [
+        "8503065",
+        "Parent8503065"
+      ]
+    }
+  ],
+  "limitations": [
+    "Fixed baseline shortest paths; counts are estimates, not route assignment.",
+    "Match observed mode, directions, time period and counting definition.",
+    "Service connections are not railway geometries; same-platform changes are not identified."
+  ]
+}

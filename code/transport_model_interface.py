@@ -40,12 +40,29 @@ import pandas as pd
 DEFAULT_CORRIDOR_BUFFER_M = 500.0
 DEFAULT_MAX_GATES = 100
 DEFAULT_GATE_SEPARATION_M = 500.0
+#DEFAULT_PASSTHROUGH_FRACTION = 0.05
 DEFAULT_PASSTHROUGH_FRACTION = 0.05
+
 
 # ---------------------------------------------------------------------------
 # Global Settings & Toggles
 # ---------------------------------------------------------------------------
 
+# ASSIGNMENT_SETTINGS = {
+#     # MSA is the teaching-model default: link flows update BPR travel times
+#     # explicitly. Planning uses the separately prepared OD surrogate.
+#     "method": "MSA",
+#     "force_regenerate_corridor_network": False,  # Reuse prepared roads unless a rebuild is explicitly requested.
+#     "max_iterations": 64,
+#     "min_iterations": 8,
+#     "stopping_rule": "road_relative_gap",
+#     "road_gap_threshold": 0.02,
+#     "check_every": 4,
+#     "relative_gap_threshold": 0.10,  # Optional successive-change diagnostic only.
+#     "od_threshold": 0.0,
+#     "drive_occupancy": 1.14,
+#     "modal_feedback": True,
+# }
 ASSIGNMENT_SETTINGS = {
     # MSA is the teaching-model default: link flows update BPR travel times
     # explicitly. Planning uses the separately prepared OD surrogate.
@@ -54,10 +71,10 @@ ASSIGNMENT_SETTINGS = {
     "max_iterations": 64,
     "min_iterations": 8,
     "stopping_rule": "road_relative_gap",
-    "road_gap_threshold": 0.02,
+    "road_gap_threshold": 0.01,
     "check_every": 4,
     "relative_gap_threshold": 0.10,  # Optional successive-change diagnostic only.
-    "od_threshold": 0.0,
+    "od_threshold": 0.1,
     "drive_occupancy": 1.14,
     "modal_feedback": True,
 }
