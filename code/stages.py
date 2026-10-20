@@ -220,7 +220,7 @@ PACKAGES = {
         # Set capital_share to 0 to disable residual valuation (lifetime may then be None).
         # No asset replacement is assumed.
         "appraisal": {
-            "capital_cost_chf": 12_140_00,  # Station-package CAPEX (CHF).
+            "capital_cost_chf": 12_140_000,  # Station-package CAPEX (CHF).
             "lifetime_years": 80,  # Service life of the share valued below (years).
             "capital_share": 0.60,  # Fraction of actual capital paid eligible for residual value.
             # Total construction emissions (tonnes CO2e), spread over construction years.
