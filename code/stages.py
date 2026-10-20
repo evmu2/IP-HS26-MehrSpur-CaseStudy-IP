@@ -207,7 +207,7 @@ PACKAGES = {
                     "access_time_reduction_pct": 25.0,  # Improved pedestrian ramps & bus loop access
                     "transfer_time_reduction_pct": 0.0, # Shorter platform transfer paths
                     # Frequency savings belong to the railway package only.
-                    "egress_time_reduction_pct": 25.0,
+                    "egress_time_reduction_pct": 15.0,
                 }
             }
         ],

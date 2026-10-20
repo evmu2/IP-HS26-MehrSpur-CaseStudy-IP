@@ -40,7 +40,7 @@ NOMINAL_PARAMS = {
     # Appraisal calendar and discounting
     # -------------------------------------------------------------------------
     "N_YEARS": 40,  # Appraisal horizon (years); *_Y40 denotes its final-year endpoint.
-    "APPRAISAL_START_YEAR": 2026,  # Calendar year represented by Year 1 of the appraisal.
+    "APPRAISAL_START_YEAR": 2027,  # Calendar year represented by Year 1 of the appraisal.
     "DISCOUNT_RATE": 0.02,  # Annual social discount rate; 0.02 means 2%.
 
     # -------------------------------------------------------------------------
@@ -95,8 +95,8 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     # Values of passenger time (CHF/person-hour)
     # -------------------------------------------------------------------------
-    "C_TT_CAR": 42.54,  # Car travel-time value, including peak congestion delay (CHF/person-hour).
-    "C_TT_PT": 26.52,  # PT in-vehicle time value (CHF/person-hour).
+    "C_TT_CAR": 23.30,  # Car travel-time value, including peak congestion delay (CHF/person-hour).
+    "C_TT_PT": 14.40,  # PT in-vehicle time value (CHF/person-hour).
     "C_TT_PT_WAITING": 26.52,  # Initial and transfer waiting-time value (CHF/person-hour).
     "C_TT_PT_ACCESS": 26.52,  # PT access and egress walking/cycling time value (CHF/person-hour).
     "C_TT_PT_TRANSFER": 26.52,  # Physical transfer-walking time value (CHF/person-hour); excludes waiting.
@@ -309,15 +309,15 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "use": "scenarios",
         "transient": True,
         "distribution": "triangular",
-        "minimum": -0.20,
-        "maximum": 0.50,
+        "minimum": 0.05,
+        "maximum": 0.44,
     },
     "PT_ASC_SHIFT": {  # Final additive PT preference shift; negative values reduce PT attractiveness.
         "category": "transport_modelling",
         "use": "scenarios",
         "transient": True,
         "distribution": "triangular",
-        "minimum": -0.10,
+        "minimum": 0.0,
         "maximum": 0.30,
     },
     # Uncomment together with BIKE_ASC_SHIFT_Y40 above to include cycling preferences.
@@ -349,16 +349,16 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "use": "sensitivity",
         "transient": False,
         "distribution": "uniform",
-        "minimum": 19.89,
-        "maximum": 33.15,
+        "minimum": 11.52,
+        "maximum": 17.28,
     },
     "C_TT_CAR": {  # Car value-of-time sensitivity, including congestion time.
         "category": "post_modelling",
         "use": "sensitivity",
         "transient": False,
         "distribution": "uniform",
-        "minimum": 31.91,
-        "maximum": 53.18,
+        "minimum": 18.64,
+        "maximum": 27.96,
     },
     "CO2_VALUE_CHF_PER_TONNE": {  # Draw the reference-year value once (constant 2019 CHF/tonne CO2).
         # Triangular mode is the general reference value; the engine applies
@@ -392,7 +392,7 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "use": "scenarios",
         "transient": False,
         "distribution": "uniform",
-        "minimum": 0.50,
+        "minimum": 0.70,
         "maximum": 1.50,
     },
     "CAPEX_MULTIPLIER": {  # Construction/option-cost multiplier; sampled once per future.
@@ -400,8 +400,8 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "use": "scenarios",
         "transient": False,
         "distribution": "triangular",
-        "minimum": 0.80,
-        "maximum": 1.20,
+        "minimum": 0.85,
+        "maximum": 1.40,
     },
     "ACCIDENT_COST_MULTIPLIER": {  # Final road/rail accident-cost factor.
         "category": "post_modelling",
