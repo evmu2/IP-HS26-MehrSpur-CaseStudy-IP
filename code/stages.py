@@ -189,8 +189,8 @@ PACKAGES = {
             "both_directions": True,
             "effects": {
                 "travel_time_reduction_pct": 0.0,
-                "initial_wait_reduction_pct": 25.0,
-                "transfer_wait_reduction_pct": 25.0,
+                "initial_wait_reduction_pct": 45.0,
+                "transfer_wait_reduction_pct": 100.0,
             },
         }
         ],
@@ -207,7 +207,7 @@ PACKAGES = {
                     "access_time_reduction_pct": 25.0,  # Improved pedestrian ramps & bus loop access
                     "transfer_time_reduction_pct": 0.0, # Shorter platform transfer paths
                     # Frequency savings belong to the railway package only.
-                    "egress_time_reduction_pct": 25.0,
+                    "egress_time_reduction_pct": 15.0,
                 }
             }
         ],
@@ -266,8 +266,8 @@ PACKAGES = {
                           "both_directions": True,
                           "effects": {
                               "travel_time_reduction_pct": 0.0,
-                              "initial_wait_reduction_pct": 12.5,
-                              "transfer_wait_reduction_pct": 12.5,
+                              "initial_wait_reduction_pct": 30.0,
+                              "transfer_wait_reduction_pct": 0.0,
                           },
             },
         ],
@@ -283,7 +283,7 @@ PACKAGES = {
                     "access_time_reduction_pct": 10.0,
                     "transfer_time_reduction_pct": 0.0, # Optimized platform connections at Winterthur HB
                     # Frequency savings belong to the railway package only.
-                    "egress_time_reduction_pct": 10.0,
+                    "egress_time_reduction_pct": 6.0,
                 }
             }
         ],
