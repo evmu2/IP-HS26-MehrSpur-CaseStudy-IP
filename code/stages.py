@@ -190,7 +190,7 @@ PACKAGES = {
             "effects": {
                 "travel_time_reduction_pct": 0.0,
                 "initial_wait_reduction_pct": 45.0,
-                "transfer_wait_reduction_pct": 100.0,
+                "transfer_wait_reduction_pct": 99.9,
             },
         }
         ],
