@@ -240,17 +240,30 @@ SECTION_DEFAULTS = {  # Generic fallback settings; configure the project's SECTI
     "crowding_enabled": False,            # this version values crowding only for PT
 }
 # Configuration for Forchbahn (S18)
+# SECTION = {  # Active project section and endpoints used for its travel-time reference.
+#     **SECTION_DEFAULTS,
+#     "active": True,                       # Include this count and its effects in model/appraisal outputs.
+#     "kind": "pt_stop",                # PT station approach, cycling route or individual PT stop.
+#     "station": "Forch",              # Station whose approach is counted.
+#     "towards": None,              # Select the side facing this station, including express services.
+#     "coverage_file": "data/processed/forch_section_coverage.npz",  # Supplied example; refreshed if inputs or definition change.
+#     "mode": "PT",                         # Mode using this section; must match an enabled external flow.
+#     "origin": {"municipality_name": "Egg"},  # Origin of the modeled travel-time reference.
+#     "destination": {"municipality_name": "Küsnacht (ZH)"},  # Destination of that reference.
+#     "crowding_enabled": False,             # Value extra PT discomfort using the section comfort threshold.
+# }
+
 SECTION = {  # Active project section and endpoints used for its travel-time reference.
     **SECTION_DEFAULTS,
     "active": True,                       # Include this count and its effects in model/appraisal outputs.
-    "kind": "pt_stop",                # PT station approach, cycling route or individual PT stop.
+    "kind": "pt_approach",                # PT station approach, cycling route or individual PT stop.
     "station": "Forch",              # Station whose approach is counted.
-    "towards": None,              # Select the side facing this station, including express services.
-    "coverage_file": "data/processed/forch_section_coverage.npz",  # Supplied example; refreshed if inputs or definition change.
+    "towards": "Zürich Stadelhofen",              # Select the side facing this station, including express services.
+    "coverage_file": None,  # Supplied example; refreshed if inputs or definition change.
     "mode": "PT",                         # Mode using this section; must match an enabled external flow.
     "origin": {"municipality_name": "Egg"},  # Origin of the modeled travel-time reference.
     "destination": {"municipality_name": "Küsnacht (ZH)"},  # Destination of that reference.
-    "crowding_enabled": False,             # Value extra PT discomfort using the section comfort threshold.
+    "crowding_enabled": True,             # Value extra PT discomfort using the section comfort threshold.
 }
 
 # Alternative definitions (replace SECTION above; disable PT crowding for these).
@@ -424,5 +437,5 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
 # Validate settings and prepare internal surrogate metadata.
 uc.configure(
     registry=STRUCTURAL_UNCERTAINTIES, nominal=NOMINAL_PARAMS,
-    n_years=N_YEARS, tail_probability=TRANSPORT_SURROGATE_TAIL_PROBABILITY,
+    n_years= NOMINAL_PARAMS["N_YEARS"], tail_probability=TRANSPORT_SURROGATE_TAIL_PROBABILITY,
 )
