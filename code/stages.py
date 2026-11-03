@@ -199,10 +199,7 @@ PACKAGES = {
         "mobility_hubs": [
             {
                 "name": "Stage 1 - Station Upgrades (Forch) (Underground Parking & Bicycle Parking)",
-                "zones": [
-                    {"municipality_name": "Küsnacht (ZH)"},
-
-                ],
+                "station": "Forch",
                 "effects": {
                     "access_time_reduction_pct": 25.0,  # Improved pedestrian ramps & bus loop access
                     "transfer_time_reduction_pct": 0.0, # Shorter platform transfer paths
@@ -250,6 +247,7 @@ PACKAGES = {
     #       Saves 4 minutes on covered routes and raises the comfort threshold by 15%.
     #       Provides 17-minute service and the Winterthur hub improvements;
     #       both packages together provide 15-minute service.
+
     "tunnel": {
         "name": "Stage 2 - Busses",
 
@@ -276,9 +274,7 @@ PACKAGES = {
         "mobility_hubs": [
             {
                 "name": "Further Bicycle Parking",
-                "zones": [
-                    {"municipality_name": "Küsnacht (ZH)"},
-                ],
+                "station": "Forch",
                 "effects": {
                     "access_time_reduction_pct": 10.0,
                     "transfer_time_reduction_pct": 0.0, # Optimized platform connections at Winterthur HB

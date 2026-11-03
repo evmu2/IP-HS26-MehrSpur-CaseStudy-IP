@@ -1,0 +1,25 @@
+﻿comparison,monitoring_indicator,outcome,monitoring_unit,outcome_unit,n,r_squared,slope,spearman_r,outcome_range
+baseline,section_combined_daily,pt_share,person-trips/day,%,40,0.4951,1.800e-03,0.6991,1.3605
+baseline,section_combined_daily,section_load_ratio,person-trips/day,ratio,40,0.9997,1.797e-05,0.9998,0.0093
+baseline,pt_trips,pt_share,person-trips/peak hour,%,40,0.5841,3.119e-03,0.7552,1.3605
+baseline,pt_trips,section_load_ratio,person-trips/peak hour,ratio,40,0.994,2.859e-05,0.9931,0.0093
+baseline,bike_trips,pt_share,person-trips/peak hour,%,40,0.0977,1.447e-03,0.3469,1.3605
+baseline,bike_trips,section_load_ratio,person-trips/peak hour,ratio,40,0.5688,2.453e-05,0.7377,0.0093
+baseline,congestion_delay_hours,pt_share,person-hours/year,%,40,0.0879,5.423e-06,0.3386,1.3605
+baseline,congestion_delay_hours,section_load_ratio,person-hours/year,ratio,40,0.7489,1.112e-07,0.8732,0.0093
+stage1_change,section_combined_daily,pt_share,person-trips/day,percentage points,40,0.9765,2.457e-05,0.9822,0.0136
+stage1_change,section_combined_daily,section_load_ratio,person-trips/day,ratio,40,0.9994,1.349e-07,0.9991,0.0001
+stage1_change,pt_trips,pt_share,person-trips/peak hour,percentage points,40,0.9561,3.878e-05,0.969,0.0136
+stage1_change,pt_trips,section_load_ratio,person-trips/peak hour,ratio,40,0.9909,2.143e-07,0.9919,0.0001
+stage1_change,bike_trips,pt_share,person-trips/peak hour,percentage points,40,0.485,3.133e-05,0.7233,0.0136
+stage1_change,bike_trips,section_load_ratio,person-trips/peak hour,ratio,40,0.5619,1.831e-07,0.743,0.0001
+stage1_change,congestion_delay_hours,pt_share,person-hours/year,percentage points,40,0.8241,1.614e-07,0.9098,0.0136
+stage1_change,congestion_delay_hours,section_load_ratio,person-hours/year,ratio,40,0.7641,8.436e-10,0.8747,0.0001
+stage2_change,section_combined_daily,pt_share,person-trips/day,percentage points,40,0.6231,6.397e-06,0.7711,0.0042
+stage2_change,section_combined_daily,section_load_ratio,person-trips/day,ratio,40,0.9079,3.860e-08,0.9418,0.0
+stage2_change,pt_trips,pt_share,person-trips/peak hour,percentage points,40,0.5514,9.600e-06,0.7141,0.0042
+stage2_change,pt_trips,section_load_ratio,person-trips/peak hour,ratio,40,0.8571,5.983e-08,0.9092,0.0
+stage2_change,bike_trips,pt_share,person-trips/peak hour,percentage points,40,0.2154,6.808e-06,0.4659,0.0042
+stage2_change,bike_trips,section_load_ratio,person-trips/peak hour,ratio,40,0.4546,4.944e-08,0.6786,0.0
+stage2_change,congestion_delay_hours,pt_share,person-hours/year,percentage points,40,0.9165,5.549e-08,0.9493,0.0042
+stage2_change,congestion_delay_hours,section_load_ratio,person-hours/year,ratio,40,0.9394,2.808e-10,0.9762,0.0

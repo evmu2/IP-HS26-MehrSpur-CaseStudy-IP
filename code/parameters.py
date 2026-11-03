@@ -48,7 +48,7 @@ NOMINAL_PARAMS = {
     # Present-day values; *_Y40 values define the nominal endpoints.
     # -------------------------------------------------------------------------
     "PASSENGER_DEMAND_GROWTH": 0.0,  # Cumulative passenger OD growth relative to baseline; 0.20 means +20%.
-    "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth.
+    "PASSENGER_DEMAND_GROWTH_Y40": 0.18,  # Nominal final passenger-demand growth.
     "PT_ASC_SHIFT": 0.0,  # Additive preference shift for both PT access modes (utility units, not percent).
     "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units).
     "BIKE_ASC_SHIFT": 0.0,  # Additive preference shift for standalone cycling (utility units).
@@ -150,7 +150,7 @@ NOMINAL_PARAMS = {
     "OPEX_MULTIPLIER": 1.0,  # Multiplier on annual infrastructure operating/maintenance costs.
     "CAPEX_MULTIPLIER": 1.0,  # Multiplier on construction costs and upfront option premiums.
     # Flexibility Premium (for pre-engineering or reservation)
-    "C_FLEX": 50_000_000,  # Upfront CHF per adaptive package; two options are paid at time zero even if unused.
+    "C_FLEX": 1_000_000,  # Upfront CHF per adaptive package; two options are paid at time zero even if unused.
 
     # -------------------------------------------------------------------------
     # Performance requirements and strategic mode-share indicators

@@ -1,0 +1,5 @@
+﻿requirement,plan,box_source,density_in_plan,coverage_in_plan
+1: pt_share > 0.25,baseline,none,,
+1: pt_share > 0.25,adaptive,none,,
+2: section_load_ratio < 1.1,baseline,none,,
+2: section_load_ratio < 1.1,adaptive,none,,

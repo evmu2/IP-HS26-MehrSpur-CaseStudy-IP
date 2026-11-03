@@ -11,7 +11,7 @@
     },
     "points_added": 0,
     "final_holdout_metrics": {
-      "weighted_rmse_min": 0.028336642979727693
+      "weighted_rmse_min": 0.02355858853601312
     },
     "target_reached": true
   },
@@ -1460,7 +1460,7 @@
   ],
   "cache_contract": {
     "format_version": 3,
-    "model_fingerprint": "e896b29783ca2aeb8498",
+    "model_fingerprint": "3865123f59da5d73926c",
     "reference_equations": "9d246065b8647b3cd51a",
     "solver_settings": {
       "stopping_rule": "road_relative_gap",
@@ -1650,11 +1650,7 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "zones": [
-              {
-                "municipality_name": "K\u00fcsnacht (ZH)"
-              }
-            ],
+            "station": "Forch",
             "effects": {
               "access_time_reduction_pct": 25.0,
               "transfer_time_reduction_pct": 0.0,
@@ -1759,11 +1755,7 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "zones": [
-              {
-                "municipality_name": "K\u00fcsnacht (ZH)"
-              }
-            ],
+            "station": "Forch",
             "effects": {
               "access_time_reduction_pct": 10.0,
               "transfer_time_reduction_pct": 0.0,
@@ -1868,11 +1860,7 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "zones": [
-              {
-                "municipality_name": "K\u00fcsnacht (ZH)"
-              }
-            ],
+            "station": "Forch",
             "effects": {
               "access_time_reduction_pct": 25.0,
               "transfer_time_reduction_pct": 0.0,
@@ -1882,11 +1870,7 @@
             }
           },
           {
-            "zones": [
-              {
-                "municipality_name": "K\u00fcsnacht (ZH)"
-              }
-            ],
+            "station": "Forch",
             "effects": {
               "access_time_reduction_pct": 10.0,
               "transfer_time_reduction_pct": 0.0,
@@ -2216,9 +2200,9 @@
     "code/additional/transport_display.py": "ab09ab70c65a0e1386b1d67bfac717cb219e3170870178443fa933e2edc8c3a4",
     "code/additional/trigger_optimization.py": "a0c80d8e99d7aca004eb50da27543c6936ad13b32c856dcbf22be1359fc8af06",
     "code/additional/uncertainty.py": "10432673e33b9059824cb75f9286c19dcf93cb8cb896552081597c4e566d8141",
-    "code/parameters.py": "efccb1bca5ff0217970c10f31fbd80b0dafdd36c7140ff0266e5d4b7cac18a44",
+    "code/parameters.py": "d6f2d24ffd93ed43d4038eba1fb2a07307285044d0dcc90b09a2f52c58037bc1",
     "code/simulation_engine.py": "61e9a8a2dc1470643f5ce7ea7756811b321299c92d6883e828b15cf19db5c5e3",
-    "code/stages.py": "6180acd0a1290118868fe08681cec49cf0163cd9ecadbd6c3d4ba604ed5d0487",
+    "code/stages.py": "69a056017943d3f56b55ecd4f5b1d5dcf103ee2ecaf458f4d5e2f4c34205863c",
     "code/surrogate_model/__init__.py": "913ec659a888396e56db37d5d0971f4d767e6d3aafd10690442bb78f27b867ea",
     "code/surrogate_model/build_transport_surrogate.py": "8ce85c6ce093b33cf47b56c15bcd305f0d74262eea8f912fb022c3844dfc02f9",
     "code/surrogate_model/od_gp.py": "ce03b9601c671d06974fc5acece46eed4867f9f139a5e130e8bd39cd0e7a04bf",
@@ -2247,9 +2231,9 @@
     "code/additional/transport_display.py": "ab09ab70c65a0e1386b1d67bfac717cb219e3170870178443fa933e2edc8c3a4",
     "code/additional/trigger_optimization.py": "a0c80d8e99d7aca004eb50da27543c6936ad13b32c856dcbf22be1359fc8af06",
     "code/additional/uncertainty.py": "10432673e33b9059824cb75f9286c19dcf93cb8cb896552081597c4e566d8141",
-    "code/parameters.py": "efccb1bca5ff0217970c10f31fbd80b0dafdd36c7140ff0266e5d4b7cac18a44",
+    "code/parameters.py": "d6f2d24ffd93ed43d4038eba1fb2a07307285044d0dcc90b09a2f52c58037bc1",
     "code/simulation_engine.py": "61e9a8a2dc1470643f5ce7ea7756811b321299c92d6883e828b15cf19db5c5e3",
-    "code/stages.py": "6180acd0a1290118868fe08681cec49cf0163cd9ecadbd6c3d4ba604ed5d0487",
+    "code/stages.py": "69a056017943d3f56b55ecd4f5b1d5dcf103ee2ecaf458f4d5e2f4c34205863c",
     "code/surrogate_model/__init__.py": "913ec659a888396e56db37d5d0971f4d767e6d3aafd10690442bb78f27b867ea",
     "code/surrogate_model/build_transport_surrogate.py": "8ce85c6ce093b33cf47b56c15bcd305f0d74262eea8f912fb022c3844dfc02f9",
     "code/surrogate_model/od_gp.py": "ce03b9601c671d06974fc5acece46eed4867f9f139a5e130e8bd39cd0e7a04bf",
