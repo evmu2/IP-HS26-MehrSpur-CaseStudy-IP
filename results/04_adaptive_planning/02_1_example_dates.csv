@@ -1,6 +1,6 @@
 ﻿scenario,failure_years,pt_share_failure_years,pt_share_first_failure_year,section_load_ratio_failure_years,section_load_ratio_first_failure_year,demand_growth_y40,pt_asc_shift_y40,package_1_decision_year,package_1_opening_year,package_2_decision_year,package_2_opening_year
 1. Low demand,21,21,20,0,,0.10034878350069643,0.1267949192431123,32,36,,
-2. Rapid early growth,21,21,20,0,,0.29759213504865684,0.1267949192431123,5,9,,
-3. Late acceleration,21,21,20,0,,0.19334234250686644,0.1267949192431123,30,34,,
+2. Rapid early growth,21,21,20,0,,0.29759213504865684,0.1267949192431123,5,9,4.0,10.0
+3. Late acceleration,21,21,20,0,,0.19334234250686644,0.1267949192431123,30,34,36.0,
 4. Temporary Year-15 shock,21,21,20,0,,0.1212039324756716,0.1267949192431123,28,32,,
-5. Strong demand and preference,21,21,20,0,,0.4081566333438187,0.2755051025721682,4,8,20.0,26.0
+5. Strong demand and preference,21,21,20,0,,0.4081566333438187,0.2755051025721682,4,8,4.0,10.0
