@@ -2,7 +2,7 @@
 Initial shortfall; opens,0.0,0.0
 Initial shortfall; not opened,0.0,0.0
 Opens by first failure,0.0,0.0
-Opens after first failure,96.0,0.5
-Reference failure; not opened,4.0,99.5
+Opens after first failure,96.0,81.5
+Reference failure; not opened,4.0,18.5
 Opens without reference failure,0.0,0.0
 No reference failure or opening,0.0,0.0

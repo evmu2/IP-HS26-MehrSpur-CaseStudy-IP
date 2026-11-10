@@ -1,7 +1,7 @@
 ﻿route,scenarios,share_percent
-Baseline → Stage 1 → Both,1,0.5
-Baseline → Stage 2 → Both,0,0.0
-Baseline → Both (simultaneous),0,0.0
-Baseline → Stage 1 only,191,95.5
-Baseline → Stage 2 only,0,0.0
-No package open within horizon,8,4.0
+Baseline → Stage 1 → Both,159,79.5
+Baseline → Stage 2 → Both,1,0.5
+Baseline → Both (simultaneous),2,1.0
+Baseline → Stage 1 only,30,15.0
+Baseline → Stage 2 only,1,0.5
+No package open within horizon,7,3.5
