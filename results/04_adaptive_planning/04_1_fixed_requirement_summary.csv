@@ -1,9 +1,9 @@
 ﻿requirement,failure_percent,mean_failure_years,configuration
-PT share (strategic PKM) > 25 % (Years 20–40),100.0,21.0,Stage 0 – Baseline Network
+PT share (strategic PKM) > 20 % (Years 20–40),100.0,20.92,Stage 0 – Baseline Network
 Peak section load/capacity < 1.1 ratio (Years 1–40),0.0,0.0,Stage 0 – Baseline Network
-PT share (strategic PKM) > 25 % (Years 20–40),100.0,21.0,Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) 
+PT share (strategic PKM) > 20 % (Years 20–40),100.0,20.9,Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) 
 Peak section load/capacity < 1.1 ratio (Years 1–40),0.0,0.0,Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) 
-PT share (strategic PKM) > 25 % (Years 20–40),100.0,21.0,Stage 2 - Busses
+PT share (strategic PKM) > 20 % (Years 20–40),100.0,20.92,Stage 2 - Busses
 Peak section load/capacity < 1.1 ratio (Years 1–40),0.0,0.0,Stage 2 - Busses
-PT share (strategic PKM) > 25 % (Years 20–40),100.0,21.0,Both stages - Tunnel and Hubs
+PT share (strategic PKM) > 20 % (Years 20–40),100.0,20.91,Both stages - Tunnel and Hubs
 Peak section load/capacity < 1.1 ratio (Years 1–40),0.0,0.0,Both stages - Tunnel and Hubs
