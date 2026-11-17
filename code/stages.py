@@ -171,7 +171,7 @@ PACKAGES = {
 
 
     "stations": {
-        "name": "Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) ",
+        "name": "Stage 1 – Additional Bus from Forch to Maur (drives further to Glattal) ",
 
         # Railway improvements
         # Section minutes follow parameters.SECTION route coverage, including
@@ -199,7 +199,8 @@ PACKAGES = {
         "mobility_hubs": [
             {
                 "name": "Stage 1 - Station Upgrades (Forch) (Underground Parking & Bicycle Parking)",
-                "station": "Forch",
+                "zones": ["15401012"],
+                "stops_per_zone": 8,
                 "effects": {
                     "access_time_reduction_pct": 25.0,  # Improved pedestrian ramps & bus loop access
                     "transfer_time_reduction_pct": 0.0, # Shorter platform transfer paths
@@ -248,7 +249,7 @@ PACKAGES = {
     #       Provides 17-minute service and the Winterthur hub improvements;
     #       both packages together provide 15-minute service.
 
-    "tunnel": {
+    "stage_2": {
         "name": "Stage 2 - Busses",
 
         # Railway improvements: the same section and service OD scope as above.
@@ -274,7 +275,8 @@ PACKAGES = {
         "mobility_hubs": [
             {
                 "name": "Further Bicycle Parking",
-                "station": "Forch",
+                "zones": ["15401012"],
+                "stops_per_zone": 8,
                 "effects": {
                     "access_time_reduction_pct": 10.0,
                     "transfer_time_reduction_pct": 0.0, # Optimized platform connections at Winterthur HB
