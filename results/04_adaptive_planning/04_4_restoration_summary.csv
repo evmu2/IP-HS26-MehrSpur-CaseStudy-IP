@@ -1,5 +1,5 @@
 ﻿transition,scenarios_with_window,with_window_percent,reachable_window_percent,mean_restorable_years,median_last_restoration_decision
-Stage 0 – Baseline Network → Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) ,4,2.0,2.0,0.02,33.5
-Stage 0 – Baseline Network → Stage 2 - Busses,1,0.5,0.5,0.0,30.0
+Stage 0 – Baseline Network → Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) ,0,0.0,0.0,0.0,
+Stage 0 – Baseline Network → Stage 2 - Busses,0,0.0,0.0,0.0,
 Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal)  → Both stages - Tunnel and Hubs,0,0.0,0.0,0.0,
-Stage 2 - Busses → Both stages - Tunnel and Hubs,2,1.0,1.0,0.01,35.0
+Stage 2 - Busses → Both stages - Tunnel and Hubs,0,0.0,0.0,0.0,

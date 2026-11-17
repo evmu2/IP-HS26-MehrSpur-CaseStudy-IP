@@ -1,5 +1,5 @@
 ﻿,minimum,maximum,favourable_direction,bottom_value,top_value
-pct_acceptable_years,47.5,60.0,higher,47.5,60.0
+pct_acceptable_years,47.5,47.5,higher,47.5,47.5
 delta_final_pt_share_pp,0.0,0.044096122217160416,higher,0.0,0.044096122217160416
 delta_final_pt_journey_time_min,-0.025352520181854743,0.0,lower,0.0,-0.025352520181854743
 delta_cumulative_road_delay_hours,-34864.70318413526,25250.406381163746,lower,25250.406381163746,-34864.70318413526
