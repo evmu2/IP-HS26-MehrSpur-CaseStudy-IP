@@ -249,7 +249,7 @@ PACKAGES = {
     #       Provides 17-minute service and the Winterthur hub improvements;
     #       both packages together provide 15-minute service.
 
-    "stage_2": {
+    "tunnel": {
         "name": "Stage 2 - Busses",
 
         # Railway improvements: the same section and service OD scope as above.

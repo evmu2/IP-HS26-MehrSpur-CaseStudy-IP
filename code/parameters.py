@@ -101,8 +101,8 @@ NOMINAL_PARAMS = {
     "C_TT_PT_ACCESS": 26.52,  # PT access and egress walking/cycling time value (CHF/person-hour).
     "C_TT_PT_TRANSFER": 26.52,  # Physical transfer-walking time value (CHF/person-hour); excludes waiting.
     # Active-mode time is valued per person-hour, like PT/car passenger time.
-        "C_TT_BIKE": 35.0,  # Cycling value of time (CHF/person-hour)
-    "C_TT_WALK": 16.0,  # Walking value of time (CHF/person-hour)
+        "C_TT_BIKE": 26.70,  # Cycling value of time (CHF/person-hour)
+    "C_TT_WALK": 21.10,  # Walking value of time (CHF/person-hour)
 
     # -------------------------------------------------------------------------
     # Optional additional benefits (uncomment to include in appraisal)
@@ -146,7 +146,7 @@ NOMINAL_PARAMS = {
     # Shared operation, investment multipliers and flexibility options
     # -------------------------------------------------------------------------
     # Package-specific CAPEX is defined in stages.py, alongside each intervention.
-    "OPEX_RATE": 0.02,  # Annual infrastructure operating/maintenance cost as a fraction of base construction cost.
+    "OPEX_RATE": 0.064,  # Annual infrastructure operating/maintenance cost as a fraction of base construction cost.
     "OPEX_MULTIPLIER": 1.0,  # Multiplier on annual infrastructure operating/maintenance costs.
     "CAPEX_MULTIPLIER": 1.0,  # Multiplier on construction costs and upfront option premiums.
     # Flexibility Premium (for pre-engineering or reservation)
