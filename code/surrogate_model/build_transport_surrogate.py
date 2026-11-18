@@ -13,8 +13,9 @@ Student-facing idea
    query many such conditions as demand and preferences change over time.
 2. A Latin-hypercube design spreads cases across the configured input ranges.
    The default is 100 training simulations TOTAL: 25 in each of the four
-   configurations (baseline, stations, tunnel, or both). Labels are balanced
-   across the fixed design.
+   configurations (baseline, Stage 1, Stage-2-only diagnostic, or both).
+   Labels are balanced across the fixed design; Stage 2 alone is not a valid
+   deployment plan.
 3. The full model supplies the training answers. Its coupled MSA (successive
    averaging) repeatedly updates road assignment, travel times and mode choice.
    Future builds check the road relative gap every four iterations, starting

@@ -205,6 +205,8 @@ def simulate_threshold_grid(lookup: dict, stage1_thresholds, stage2_thresholds,
 
     stage = np.zeros((n_grid, n_scenarios), dtype=np.int8)
     initially_station, initially_tunnel = stages.stage_components(lookup["initial_stage"])
+    if initially_tunnel and not initially_station:
+        raise ValueError("Stage 2 cannot operate without Stage 1.")
     stations_active = np.full_like(stage, initially_station, dtype=bool)
     tunnel_active = np.full_like(stage, initially_tunnel, dtype=bool)
     persistence1 = np.zeros_like(stage, dtype=np.int16)
@@ -247,8 +249,11 @@ def simulate_threshold_grid(lookup: dict, stage1_thresholds, stage2_thresholds,
         )
         activate2 = np.zeros_like(tunnel_active)
         if trigger2 is not None:
+            eligible_stage2 = stations_active
             tunnel_active, activation2, persistence2, _, activate2 = ap.advance_trigger(
-                year, tunnel_active, activation2, persistence2, prev2, trigger2, threshold=th2[:, None])
+                year, tunnel_active, activation2, persistence2,
+                np.where(eligible_stage2, prev2, np.nan), trigger2, threshold=th2[:, None])
+            activate2 &= eligible_stage2
         capital2[activate2] = np.broadcast_to(lookup["investment2"][:, t], capital2.shape)[activate2]
         npc_chf[activate2] += (
             np.broadcast_to(lookup["investment2"][:, t] * lookup["discount"][:, t],

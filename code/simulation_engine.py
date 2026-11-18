@@ -321,7 +321,7 @@ def annual_costs(
     base_metrics      : Aggregated transport metrics from the FSM for the active stage.
     year_idx          : 0-based year index (year_idx=0 → Year 1 of the horizon).
     g_cum             : Cumulative demand growth factor for this year.
-    stage             : Transport state: 0 baseline, 1 stations, 2 tunnel, 3 both.
+    stage             : Transport state: 0 baseline, 1 Stage 1, 2 Stage-2 diagnostic, 3 both.
     params            : Parameter dictionary (defaults to NOMINAL_PARAMS).
     extra_delay       : Car passenger-hours of congestion, excluding background vehicles.
     inv_cost          : Capital investment cost (CHF) incurred in this year (optional).

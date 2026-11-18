@@ -18,9 +18,10 @@ Asset lifetimes below affect final-year appraisal only, not transport.
 
 SURROGATE CONSEQUENCE
 ---------------------
-The two packages can operate independently. Transport states are 0 (baseline),
-1 (stations), 2 (tunnel), and 3 (both). The combined state contains the two
-packages' benefits once each plus COMBINED_EFFECTS. One GP learns all four configurations. Changes
+The transport model represents four package combinations: 0 (baseline),
+1 (Stage 1), 2 (Stage 2-only diagnostic), and 3 (both). A valid deployment
+plan treats Stage 2 as an add-on and never opens it before Stage 1. The combined
+state contains both packages' benefits plus COMBINED_EFFECTS. One GP learns all four configurations. Changes
 to their physical effects require rebuilding the surrogate and response table.
 Changing only plan timing, costs, comfort capacity, construction emissions or
 asset lifetimes does not require a surrogate rebuild. Rerun appraisal to include them.
@@ -227,30 +228,11 @@ PACKAGES = {
         },
     },
 
-    # --- Tunnel package ---
-    # Core Tunnel & Winterthur Hub Package (A0 Gesamt, A1 Winterthur, A2 Tunnel)
-    #
-    # ⚠️ STUDENT INSTRUCTION:
-    # Replace this package with your own long-term or secondary interventions.
-    #
-    # SBB MehrSpur tunnel scope (opening dates are configured in adaptive_planning.py):
-    #
-    #       A0 Gesamtprojekt: System-wide technical integration,
-    #       ETCS Level 2 signaling, traction power supply, and overall project management.
-    #
-    #       A1 Winterthur: Major track layout reconfiguration at Winterthur HB,
-    #       adding grade-separated flyovers, extended platforms, and conflict-free routing.
-    #
-    #       A2 Tunnel: 8.3 km twin-tube Brüttenertunnel cutting directly between
-    #       Dietlikon/Bassersdorf and Winterthur, bypassing the curvy Effretikon bottleneck.
-    #
-    # Transport & Economic Impact:
-    #       Saves 4 minutes on covered routes and raises the comfort threshold by 15%.
-    #       Provides 17-minute service and the Winterthur hub improvements;
-    #       both packages together provide 15-minute service.
-
-    "stage_2": {
-        "name": "Stage 2 - Busses",
+    # --- Stage 2 add-on ---
+    # The internal key "tunnel" is retained for compatibility with the
+    # two-package transport-state schema.
+    "tunnel": {
+        "name": "Stage 2 - Additional buses and bicycle parking (on top of Stage 1)",
 
         # Railway improvements: the same section and service OD scope as above.
         "railway_expansions": [
@@ -279,7 +261,7 @@ PACKAGES = {
                 "stops_per_zone": 8,
                 "effects": {
                     "access_time_reduction_pct": 10.0,
-                    "transfer_time_reduction_pct": 0.0, # Optimized platform connections at Winterthur HB
+                    "transfer_time_reduction_pct": 0.0, # No additional transfer-time effect configured.
                     # Frequency savings belong to the railway package only.
                     "egress_time_reduction_pct": 6.0,
                 }
@@ -288,7 +270,7 @@ PACKAGES = {
 
         # Appraisal considerations: the same valuation and construction conventions.
         "appraisal": {
-            "capital_cost_chf": 2_780_000,  # Tunnel/Winterthur package CAPEX (CHF).
+            "capital_cost_chf": 2_780_000,  # Stage-2 add-on CAPEX (CHF).
             "lifetime_years": 80,  # Service life of the share valued below (years).
             "capital_share": 0.60,  # Fraction of actual capital paid eligible for residual value.
             "construction_co2_tonnes": 0,  # Total construction emissions (tonnes CO2e).
@@ -299,9 +281,8 @@ PACKAGES = {
 # =============================================================================
 # 2. COMBINED-ONLY BENEFITS
 # =============================================================================
-# Extra effects available only when BOTH packages are operating. These minutes
-# are added to the package values: 6 minutes of section saving and 5 minutes
-# of headway reduction in total (20-minute baseline -> 15-minute service).
+# Optional extra effects available only when BOTH packages are operating.
+# Keep these at zero unless a joint benefit beyond the two packages is supported.
 COMBINED_EFFECTS = {
     "railway_expansions": [
         {
@@ -310,14 +291,8 @@ COMBINED_EFFECTS = {
             "capacity_increase": 0.0,  # Extra fraction of baseline capacity, only when both packages operate.
         },
     ],
-    # Capacity increases are additive: +10% stations +15% tunnel +5% combined = +30% of baseline.
-    # Additional physical interventions can use the same dictionaries as above:
-     "mobility_hubs": [{
-         "name": "Shared interchange improvement",
-         "zones": [{"municipality_name": "Dietlikon"}],
-         "effects": {"transfer_time_reduction_pct": 0.0},
-     }],
-     #Add OD-specific PT effects as further railway_expansions entries.
+    # Do not repeat Stage 1 or Stage 2 benefits here; add only evidenced synergy.
+    # Add OD-specific PT synergies as further railway_expansions entries.
     # Other supported keys: bike_highways, road_capacity.
     # Specify frequency changes above, to apply their waiting benefit only once.
 }
@@ -327,7 +302,12 @@ COMBINED_EFFECTS = {
 # INTERNAL ASSEMBLY AND APPRAISAL HELPERS (normally leave unchanged)
 # =============================================================================
 STATE_IDS = (0, 1, 2, 3)
-STATE_LABELS = {0: "Baseline", 1: "Stations only", 2: "Tunnel only", 3: "Stations + tunnel"}
+STATE_LABELS = {
+    0: "Baseline",
+    1: "Stage 1 only",
+    2: "Stage 2 only (diagnostic, not a valid plan)",
+    3: "Stages 1 + 2",
+}
 STATE_COLORS = {0: "#9E9E9E", 1: "#FFC107", 2: "#2196F3", 3: "#4CAF50"}
 _STATE_COMPONENTS = {0: (False, False), 1: (True, False), 2: (False, True), 3: (True, True)}
 
@@ -398,7 +378,7 @@ def package_appraisal_settings() -> dict:
 
 def get_stages(params: dict | None = None, *, packages: dict | None = None,
                combined_effects: dict | None = None) -> dict[int, dict]:
-    """Assemble baseline (0), stations (1), tunnel (2), and both packages (3).
+    """Assemble baseline (0), Stage 1 (1), a Stage-2 diagnostic (2), and both (3).
 
     Each package's physical effects are included once, with combined-only
     effects added to state 3. Appraisal settings stay outside the transport
@@ -427,7 +407,7 @@ def stage_components(stage: int) -> tuple[bool, bool]:
 
 
 def state_for_components(stations_active: bool, tunnel_active: bool) -> int:
-    """Select a transport state from two independently operating packages."""
+    """Map package flags to a transport state; plan validation enforces dependencies."""
     components = (bool(stations_active), bool(tunnel_active))
     return next(state for state, active in _STATE_COMPONENTS.items() if active == components)
 
@@ -530,7 +510,7 @@ def _assemble_stages(packages: dict, params: dict, service_od_pairs: list[dict],
         }
         stages[stage] = specification
     combined = deepcopy(stages[2])
-    combined["name"] = "Both stages - Tunnel and Hubs"
+    combined["name"] = "Stages 1 + 2 - Forch bus and hub improvements"
     combined["section_time_saving_min"] = minute_effect(3, "section_time_saving_min")
     for key in ("railway_expansions", "mobility_hubs", "bike_highways", "road_capacity"):
         if key in stages[1] or key in stages[2] or key in combined_effects:

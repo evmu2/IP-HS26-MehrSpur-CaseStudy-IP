@@ -46,8 +46,8 @@ from additional import uncertainty as uc
 # across the configured directions. The count includes modeled passengers and
 # the optional supplementary cohort. It is distinct from all municipal-corridor
 # PT trips and from the comfort-capacity thresholds used to price crowding.
-# Both rules use the previous year's observations and operate independently.
-# Either package can be built first, or both can be under construction together.
+# Both rules use the previous year's observations. Stage 2 is only eligible
+# after Stage 1 is operating.
 
 # Common signposts and their units. Other numeric simulate_year() result fields
 # can also be monitored; a misspelled or missing result field raises an error.
@@ -76,14 +76,14 @@ DEFAULT_TRIGGERS = {
         "persistence":     2,       # Consecutive years above threshold
         "lead_time":       4,       # Years of planning and station civil works
     },
-    # Trigger 2: The same section count -> package 2 (Brüttenertunnel)
+    # Trigger 2: The same section count -> Stage 2 add-on
     # An absolute daily count keeps the signpost comparable when stations add
     # capacity. The action threshold is separate from comfort capacity.
     "trigger2": {
         "signpost":        "section_combined_daily",
         "threshold":       682_000,
         "persistence":     2,
-        # Years of tunnel planning and construction after the decision.
+        # Implementation lead time for the Stage 2 add-on.
         "lead_time":       6,
     }
 }
@@ -96,8 +96,8 @@ DEFAULT_TRIGGERS = {
 #   initial_packages lists the packages already open in Year 1.
 #   stations and tunnel specify when to add the respective package.
 # Internally these combinations map to transport states: 0 = baseline,
-# 1 = stations only, 2 = tunnel only, 3 = both packages. Either package can
-# open first; adding the other produces state 3.
+# 1 = Stage 1 only, 2 = Stage 2-only diagnostic state, 3 = both packages.
+# A valid project plan may open Stage 1 alone, then add Stage 2.
 #
 # Transition examples:
 #   None                                      -> never add this package
@@ -210,6 +210,25 @@ def _validate_plan(spec: dict, name: str) -> None:
         else:
             raise ValueError(f"{label}: type must be 'fixed' or 'trigger'.")
 
+    stations_initial, tunnel_initial = stages.stage_components(initial)
+    if tunnel_initial and not stations_initial:
+        raise ValueError(f"Plan '{name}': Stage 2 cannot operate without Stage 1.")
+
+    stage2 = spec["to2"]
+    if stage2 is None or stations_initial:
+        return
+    stage1 = spec["to1"]
+    if stage1 is None:
+        raise ValueError(f"Plan '{name}': Stage 2 requires Stage 1 to be scheduled first.")
+    if stage2["type"] == "fixed":
+        if stage1["type"] != "fixed":
+            raise ValueError(
+                f"Plan '{name}': fixed Stage 2 opening requires Stage 1 to be initially open "
+                "or have a fixed opening year."
+            )
+        if stage2["year"] < stage1["year"]:
+            raise ValueError(f"Plan '{name}': Stage 2 cannot open before Stage 1.")
+
 
 def validate_section_signpost(rule: dict | None, params: dict | None = None,
                               *, label: str = "Adaptive trigger") -> None:
@@ -305,7 +324,7 @@ def _describe_plan(spec: dict) -> str:
     parts = []
     if spec["initial_stage"]:
         parts.append(f"{stages.STATE_LABELS[spec['initial_stage']]} from Year 1")
-    for key, package in (("to1", "Stations"), ("to2", "Tunnel")):
+    for key, package in (("to1", "Stage 1"), ("to2", "Stage 2")):
         transition = spec[key]
         if transition is None:
             continue
@@ -414,7 +433,7 @@ def get_plans(params: dict | None = None, triggers: dict | None = None) -> dict:
 
 
 def get_reference_plan(stage: int, params: dict | None = None) -> dict:
-    """Return a constant-state plan for annual lookup construction."""
+    """Return a constant-state lookup; state 2 is diagnostic, not deployable."""
     params = NOMINAL_PARAMS if params is None else params
     stations_active, tunnel_active = stages.stage_components(stage)
     costs = get_plans(params)["static2"]
@@ -438,7 +457,7 @@ PLAN_NAMES = list(PLANS.keys())
 def validate_case_study_configuration() -> None:
     """Check the cross-file contract students are most likely to break.
 
-    Two independently operating packages produce four transport states.
+    The model represents four states; valid plans cannot open Stage 2 alone.
     """
     stage_ids = set(map(int, stages.get_stages(NOMINAL_PARAMS)))
     missing = sorted(set(stages.STATE_IDS) - stage_ids)
@@ -582,7 +601,8 @@ def run_plan_from_trajectories(plan_def: str  | dict, stage_metrics: dict, g_tra
         if to1 and to1["type"] == "fixed" and not stations_active and year == to1["year"]:
             stations_active = True
             activation1_year = year
-        if to2 and to2["type"] == "fixed" and not tunnel_active and year == to2["year"]:
+        if (to2 and to2["type"] == "fixed" and stations_active and not tunnel_active
+                and year == to2["year"]):
             tunnel_active = True
             activation2_year = year
 
@@ -597,8 +617,8 @@ def run_plan_from_trajectories(plan_def: str  | dict, stage_metrics: dict, g_tra
             if decided:
                 decision1_year = year
 
-        if to2 and to2["type"] == "trigger":
-            val2 = (_previous_signpost(prev_metrics, to2, "Tunnel-package trigger")
+        if to2 and to2["type"] == "trigger" and stations_active:
+            val2 = (_previous_signpost(prev_metrics, to2, "Stage-2 trigger")
                     if not tunnel_active and activation2_year is None else None)
             tunnel_active, opening, persist2, decided, _ = advance_trigger(
                 year, tunnel_active, activation2_year or 0, persist2, val2, to2)
