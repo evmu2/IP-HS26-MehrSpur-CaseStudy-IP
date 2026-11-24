@@ -1,5 +1,5 @@
 ﻿configuration,initial_shortfall_percent,all_requirements_met_percent,mean_failure_years,median_first_failure_year_among_failures
-Stage 0 – Baseline Network,0.0,0.0,21.0,20.0
-Stage 1 – Additional Bus form Forch to Maur (drives further to Glattal) ,0.0,0.0,21.0,20.0
-Stage 2 - Busses,0.0,0.0,21.0,20.0
-Both stages - Tunnel and Hubs,0.0,0.0,21.0,20.0
+Stage 0 – Baseline Network,0.0,24.5,10.41,20.0
+Stage 1 – Additional Bus from Forch to Maur (drives further to Glattal) ,0.0,29.0,9.56,20.0
+Stage 2 - Additional buses and bicycle parking (on top of Stage 1),0.0,25.5,10.06,20.0
+Stages 1 + 2 - Forch bus and hub improvements,0.0,29.5,9.49,20.0

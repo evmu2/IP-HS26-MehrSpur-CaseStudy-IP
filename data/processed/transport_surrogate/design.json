@@ -11,7 +11,7 @@
     },
     "points_added": 0,
     "final_holdout_metrics": {
-      "weighted_rmse_min": 0.02355858853601312
+      "weighted_rmse_min": 0.0272665231736363
     },
     "target_reached": true
   },
@@ -1460,7 +1460,7 @@
   ],
   "cache_contract": {
     "format_version": 3,
-    "model_fingerprint": "3865123f59da5d73926c",
+    "model_fingerprint": "51480a3500992be1c942",
     "reference_equations": "9d246065b8647b3cd51a",
     "solver_settings": {
       "stopping_rule": "road_relative_gap",
@@ -1650,7 +1650,10 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "station": "Forch",
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
             "effects": {
               "access_time_reduction_pct": 25.0,
               "transfer_time_reduction_pct": 0.0,
@@ -1678,7 +1681,7 @@
               "speed_increase_pct": 0.0,
               "distance_reduction_pct": 0.0,
               "initial_wait_reduction_pct": 45.0,
-              "transfer_wait_reduction_pct": 99.9,
+              "transfer_wait_reduction_pct": 50.0,
               "transfer_time_reduction_pct": 0.0,
               "access_time_reduction_pct": 0.0,
               "egress_time_reduction_pct": 0.0
@@ -1755,7 +1758,10 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "station": "Forch",
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
             "effects": {
               "access_time_reduction_pct": 10.0,
               "transfer_time_reduction_pct": 0.0,
@@ -1860,7 +1866,10 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "station": "Forch",
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
             "effects": {
               "access_time_reduction_pct": 25.0,
               "transfer_time_reduction_pct": 0.0,
@@ -1870,27 +1879,16 @@
             }
           },
           {
-            "station": "Forch",
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
             "effects": {
               "access_time_reduction_pct": 10.0,
               "transfer_time_reduction_pct": 0.0,
               "initial_wait_reduction_pct": 0.0,
               "transfer_wait_reduction_pct": 0.0,
               "egress_time_reduction_pct": 6.0
-            }
-          },
-          {
-            "zones": [
-              {
-                "municipality_name": "Dietlikon"
-              }
-            ],
-            "effects": {
-              "access_time_reduction_pct": 0.0,
-              "transfer_time_reduction_pct": 0.0,
-              "initial_wait_reduction_pct": 0.0,
-              "transfer_wait_reduction_pct": 0.0,
-              "egress_time_reduction_pct": 0.0
             }
           }
         ],
@@ -1912,7 +1910,7 @@
               "speed_increase_pct": 0.0,
               "distance_reduction_pct": 0.0,
               "initial_wait_reduction_pct": 45.0,
-              "transfer_wait_reduction_pct": 99.9,
+              "transfer_wait_reduction_pct": 50.0,
               "transfer_time_reduction_pct": 0.0,
               "access_time_reduction_pct": 0.0,
               "egress_time_reduction_pct": 0.0
@@ -2193,18 +2191,18 @@
   },
   "source_sha256": {
     "code/__init__.py": "421c01f1af482c603c7f45d91add8e927486e49ac37088d74d7237823d6ad9fa",
-    "code/adaptive_planning.py": "b5c35bbadd475fbaa394484d57ae0a11051d2a4430777f0e30e736be765cdf3a",
+    "code/adaptive_planning.py": "ed8dc28fba23082db30ad130ebb64960bdafb47e7fb9bab7a7c3a3867fcdce5d",
     "code/additional/__init__.py": "9ddd4b71b697c94056a009a1676c42259102b25623ff5b5a4f57836b4779d23a",
     "code/additional/notebook_exports.py": "3a83839a9217a775f994c1d88c998ad4b4e217b76e8a1ee5639d5e0675d6b8a4",
     "code/additional/section_flows.py": "8b0c3fdf9c036f7a634636d8a06de4c67375be2f08349a588ce2a43d47e8932a",
     "code/additional/transport_display.py": "ab09ab70c65a0e1386b1d67bfac717cb219e3170870178443fa933e2edc8c3a4",
-    "code/additional/trigger_optimization.py": "a0c80d8e99d7aca004eb50da27543c6936ad13b32c856dcbf22be1359fc8af06",
+    "code/additional/trigger_optimization.py": "f4ad01e73d595bce9c9be6c9732362111f79c3f85f1009c2f0f9a41d814407a0",
     "code/additional/uncertainty.py": "10432673e33b9059824cb75f9286c19dcf93cb8cb896552081597c4e566d8141",
-    "code/parameters.py": "d6f2d24ffd93ed43d4038eba1fb2a07307285044d0dcc90b09a2f52c58037bc1",
-    "code/simulation_engine.py": "61e9a8a2dc1470643f5ce7ea7756811b321299c92d6883e828b15cf19db5c5e3",
-    "code/stages.py": "69a056017943d3f56b55ecd4f5b1d5dcf103ee2ecaf458f4d5e2f4c34205863c",
+    "code/parameters.py": "0f7d62ab5418a7b253ce551d3c6a9b22a8ff48a78e2eba7223b61a79bc90cce8",
+    "code/simulation_engine.py": "b1ce7813f61b1b46808aa1fd21a0be9760bf8b05ff454ca08638b23cf922a826",
+    "code/stages.py": "4e58183018fd45f92468449b1e18423ccc99076d8dfd9d16319983df54164c0e",
     "code/surrogate_model/__init__.py": "913ec659a888396e56db37d5d0971f4d767e6d3aafd10690442bb78f27b867ea",
-    "code/surrogate_model/build_transport_surrogate.py": "8ce85c6ce093b33cf47b56c15bcd305f0d74262eea8f912fb022c3844dfc02f9",
+    "code/surrogate_model/build_transport_surrogate.py": "cb9f3f4377735bfe98577ba1c02dcdf3090ca29851315af77e93a25779e0c875",
     "code/surrogate_model/od_gp.py": "ce03b9601c671d06974fc5acece46eed4867f9f139a5e130e8bd39cd0e7a04bf",
     "code/surrogate_model/prepared_transport.py": "8c559ef41b72cc676d0d78fda6a2b39cdf5f4993517069bc01e6030ad7a06cee",
     "code/surrogate_model/response_table.py": "b715a90a46b0fe4be9ab94faf5f764db11ba9296ad546f2272480cea42eb70de",
@@ -2219,23 +2217,23 @@
     "code/transport_core/routing.py": "ca8b3dc68880492991130e023f7d80388784a74415a9f4278ecf5b331eae1292",
     "code/transport_core/travel_times.py": "0e761de51501ef7883663aa2d398dae5c0305937dbe937e30c40a938a92480d4",
     "code/transport_core/zoning.py": "11d387c2389b4954351f82c59f2d7d2b4c74464a9b829155e33cc6b530f780c3",
-    "code/transport_model_interface.py": "8e54719c8d9b5ba195efa15d46c92456b58f42382c76b991fc206bbe7639276e",
+    "code/transport_model_interface.py": "91f288a071b53490df005700c615c211f11615ec55e3fbc40e66f81cfef67495",
     "code/validate_case_study.py": "3c261b5d3fe77d43e1c989aaa2671eaf22091e32cbda8289660ef56730ad74eb"
   },
   "reference_source_sha256": {
     "code/__init__.py": "421c01f1af482c603c7f45d91add8e927486e49ac37088d74d7237823d6ad9fa",
-    "code/adaptive_planning.py": "b5c35bbadd475fbaa394484d57ae0a11051d2a4430777f0e30e736be765cdf3a",
+    "code/adaptive_planning.py": "ed8dc28fba23082db30ad130ebb64960bdafb47e7fb9bab7a7c3a3867fcdce5d",
     "code/additional/__init__.py": "9ddd4b71b697c94056a009a1676c42259102b25623ff5b5a4f57836b4779d23a",
     "code/additional/notebook_exports.py": "3a83839a9217a775f994c1d88c998ad4b4e217b76e8a1ee5639d5e0675d6b8a4",
     "code/additional/section_flows.py": "8b0c3fdf9c036f7a634636d8a06de4c67375be2f08349a588ce2a43d47e8932a",
     "code/additional/transport_display.py": "ab09ab70c65a0e1386b1d67bfac717cb219e3170870178443fa933e2edc8c3a4",
-    "code/additional/trigger_optimization.py": "a0c80d8e99d7aca004eb50da27543c6936ad13b32c856dcbf22be1359fc8af06",
+    "code/additional/trigger_optimization.py": "f4ad01e73d595bce9c9be6c9732362111f79c3f85f1009c2f0f9a41d814407a0",
     "code/additional/uncertainty.py": "10432673e33b9059824cb75f9286c19dcf93cb8cb896552081597c4e566d8141",
-    "code/parameters.py": "d6f2d24ffd93ed43d4038eba1fb2a07307285044d0dcc90b09a2f52c58037bc1",
-    "code/simulation_engine.py": "61e9a8a2dc1470643f5ce7ea7756811b321299c92d6883e828b15cf19db5c5e3",
-    "code/stages.py": "69a056017943d3f56b55ecd4f5b1d5dcf103ee2ecaf458f4d5e2f4c34205863c",
+    "code/parameters.py": "0f7d62ab5418a7b253ce551d3c6a9b22a8ff48a78e2eba7223b61a79bc90cce8",
+    "code/simulation_engine.py": "b1ce7813f61b1b46808aa1fd21a0be9760bf8b05ff454ca08638b23cf922a826",
+    "code/stages.py": "4e58183018fd45f92468449b1e18423ccc99076d8dfd9d16319983df54164c0e",
     "code/surrogate_model/__init__.py": "913ec659a888396e56db37d5d0971f4d767e6d3aafd10690442bb78f27b867ea",
-    "code/surrogate_model/build_transport_surrogate.py": "8ce85c6ce093b33cf47b56c15bcd305f0d74262eea8f912fb022c3844dfc02f9",
+    "code/surrogate_model/build_transport_surrogate.py": "cb9f3f4377735bfe98577ba1c02dcdf3090ca29851315af77e93a25779e0c875",
     "code/surrogate_model/od_gp.py": "ce03b9601c671d06974fc5acece46eed4867f9f139a5e130e8bd39cd0e7a04bf",
     "code/surrogate_model/prepared_transport.py": "8c559ef41b72cc676d0d78fda6a2b39cdf5f4993517069bc01e6030ad7a06cee",
     "code/surrogate_model/response_table.py": "b715a90a46b0fe4be9ab94faf5f764db11ba9296ad546f2272480cea42eb70de",
@@ -2250,7 +2248,7 @@
     "code/transport_core/routing.py": "ca8b3dc68880492991130e023f7d80388784a74415a9f4278ecf5b331eae1292",
     "code/transport_core/travel_times.py": "0e761de51501ef7883663aa2d398dae5c0305937dbe937e30c40a938a92480d4",
     "code/transport_core/zoning.py": "11d387c2389b4954351f82c59f2d7d2b4c74464a9b829155e33cc6b530f780c3",
-    "code/transport_model_interface.py": "8e54719c8d9b5ba195efa15d46c92456b58f42382c76b991fc206bbe7639276e",
+    "code/transport_model_interface.py": "91f288a071b53490df005700c615c211f11615ec55e3fbc40e66f81cfef67495",
     "code/validate_case_study.py": "3c261b5d3fe77d43e1c989aaa2671eaf22091e32cbda8289660ef56730ad74eb"
   }
 }

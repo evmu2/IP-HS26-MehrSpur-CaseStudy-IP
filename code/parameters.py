@@ -156,7 +156,7 @@ NOMINAL_PARAMS = {
     # Performance requirements and strategic mode-share indicators
     # -------------------------------------------------------------------------
     "MAX_AVG_TT": 15.0,  # Acceptability ceiling for peak car/PT in-vehicle time plus car delay (min/trip).
-    "PT_SHARE_TARGET": 0.20,  # Teaching minimum for PT share of strategic passenger-km; baseline is about 31.9%.
+    "PT_SHARE_TARGET": 0.185,  # Forch-specific target (+1.2 pp over ~17.3% suburban baseline strategic PKM share).
     "MIN_STRATEGIC_PKM_DISTANCE": 2.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
 
     # Internal shared keys for appraisal and uncertainties; edit values in stages.py.
@@ -263,7 +263,7 @@ SECTION = {  # Active project section and endpoints used for its travel-time ref
     "mode": "PT",                         # Mode using this section; must match an enabled external flow.
     "origin": {"municipality_name": "Egg"},  # Origin of the modeled travel-time reference.
     "destination": {"municipality_name": "Küsnacht (ZH)"},  # Destination of that reference.
-    "crowding_enabled": True,             # Value extra PT discomfort using the section comfort threshold.
+    "crowding_enabled": False,             # Disabled: onboard crowding capacity is not modeled for Forch.
 }
 
 # Alternative definitions (replace SECTION above; disable PT crowding for these).

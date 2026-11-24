@@ -1,7 +1,7 @@
 {
-  "surrogate_fingerprint": "3865123f59da5d73926c",
-  "surrogate_artifact_sha256": "cbcd92c94d8dcda0bc23a99936518eeb8361690defd4ed40e25985500a86eeea",
-  "response_table_fingerprint": "0e64445ec3ae5404d992",
+  "surrogate_fingerprint": "51480a3500992be1c942",
+  "surrogate_artifact_sha256": "9a4e8be13f956a2c231e57ce1077b924c1408bc4da5d3d533f0fc38e98d81010",
+  "response_table_fingerprint": "49e87687f106bc890eae",
   "surrogate_format_version": 3,
   "transport_uncertainties": [
     "PASSENGER_DEMAND_GROWTH",

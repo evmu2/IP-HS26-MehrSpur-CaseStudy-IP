@@ -80,7 +80,7 @@ DEFAULT_TRIGGERS = {
     # An absolute daily count keeps the signpost comparable when stations add
     # capacity. The action threshold is separate from comfort capacity.
     "trigger2": {
-        "signpost":        "section_combined_daily",
+        "signpost":        "congestion_delay_hours",
         "threshold":       682_000,
         "persistence":     2,
         # Implementation lead time for the Stage 2 add-on.
@@ -211,7 +211,7 @@ def _validate_plan(spec: dict, name: str) -> None:
             raise ValueError(f"{label}: type must be 'fixed' or 'trigger'.")
 
     stations_initial, tunnel_initial = stages.stage_components(initial)
-    if tunnel_initial and not stations_initial:
+    if tunnel_initial and not stations_initial and not spec.get("_diagnostic_reference", False):
         raise ValueError(f"Plan '{name}': Stage 2 cannot operate without Stage 1.")
 
     stage2 = spec["to2"]
@@ -440,6 +440,7 @@ def get_reference_plan(stage: int, params: dict | None = None) -> dict:
     return {
         "name": stages.STATE_LABELS[stage],
         "initial_stage": stage, "to1": None, "to2": None,
+        "_diagnostic_reference": True,
         "upfront_fee": 0.0,
         "inv_stage1": costs["inv_stage1"] if stations_active else 0.0,
         "op_stage1": costs["op_stage1"] if stations_active else 0.0,

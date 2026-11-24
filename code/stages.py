@@ -191,7 +191,7 @@ PACKAGES = {
             "effects": {
                 "travel_time_reduction_pct": 0.0,
                 "initial_wait_reduction_pct": 45.0,
-                "transfer_wait_reduction_pct": 99.9,
+                "transfer_wait_reduction_pct": 50.0,
             },
         }
         ],
@@ -283,19 +283,7 @@ PACKAGES = {
 # =============================================================================
 # Optional extra effects available only when BOTH packages are operating.
 # Keep these at zero unless a joint benefit beyond the two packages is supported.
-COMBINED_EFFECTS = {
-    "railway_expansions": [
-        {
-            "section_time_saving_min": 0.0,
-            "headway_reduction_min": 0.0,
-            "capacity_increase": 0.0,  # Extra fraction of baseline capacity, only when both packages operate.
-        },
-    ],
-    # Do not repeat Stage 1 or Stage 2 benefits here; add only evidenced synergy.
-    # Add OD-specific PT synergies as further railway_expansions entries.
-    # Other supported keys: bike_highways, road_capacity.
-    # Specify frequency changes above, to apply their waiting benefit only once.
-}
+COMBINED_EFFECTS = {}
 
 
 # =============================================================================
