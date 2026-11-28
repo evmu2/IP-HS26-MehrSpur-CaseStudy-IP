@@ -185,7 +185,15 @@ PACKAGES = {
                 {
                     "origin": {"municipality_name": "Küsnacht (ZH)"},
                     "destination": {"municipality_name": "Maur"},
-                }
+                },
+                {
+                    "origin": {"municipality_name": "Maur"},
+                    "destination": {"municipality_name": "Zürich"},
+                },
+                {
+                    "origin": {"municipality_name": "Küsnacht (ZH)"},
+                    "destination": {"municipality_name": "Zürich"},
+                },
             ],
             "both_directions": True,
             "effects": {
@@ -237,20 +245,28 @@ PACKAGES = {
         # Railway improvements: the same section and service OD scope as above.
         "railway_expansions": [
             {
-              "name": "Bus Küsnacht–Maur",
-                          "area_pairs": [
-                              {
-                                  "origin": {"municipality_name": "Küsnacht (ZH)"},
-                                  "destination": {"municipality_name": "Maur"},
-                              }
-                          ],
-                          "both_directions": True,
-                          "effects": {
-                              "travel_time_reduction_pct": 0.0,
-                              "initial_wait_reduction_pct": 30.0,
-                              "transfer_wait_reduction_pct": 0.0,
-                          },
+            "name": "Bus Küsnacht–Maur",
+            "area_pairs": [
+                {
+                    "origin": {"municipality_name": "Küsnacht (ZH)"},
+                    "destination": {"municipality_name": "Maur"},
+                },
+                {
+                    "origin": {"municipality_name": "Maur"},
+                    "destination": {"municipality_name": "Zürich"},
+                },
+                {
+                    "origin": {"municipality_name": "Küsnacht (ZH)"},
+                    "destination": {"municipality_name": "Zürich"},
+                },
+            ],
+            "both_directions": True,
+            "effects": {
+                "travel_time_reduction_pct": 0.0,
+                "initial_wait_reduction_pct": 30.0,
+                "transfer_wait_reduction_pct": 0.0,
             },
+        },
         ],
 
         # Hub & Node Interventions
